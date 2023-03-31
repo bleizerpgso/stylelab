@@ -9,9 +9,6 @@ print("conexión establecida")
 def buscador(tags):
     return f"select marca, modelo from ropa where tags like '%{tags}%' "
 
-
-
-
 print("Elije entre estas 3 marcas de ropa:")
 print("polo ralph lauren (1)")
 print("Nike(2)")
