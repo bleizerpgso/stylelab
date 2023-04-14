@@ -6,14 +6,19 @@ conn = pymysql.connect(
 )
 print("conexión establecida")
 
-def buscador(tags):
-    return f"select marca, modelo from ropa where tags like '%{tags}%' "
+def buscador(tags, tags2):
+    return f"select id, marca, modelo from ropa where tags like '%{tags}%' or tags like '%{tags2}%'"
 
-tags = input("")
+tags = "deporte"
+tags2 = "calle"
 cursor = conn.cursor()
 cursor.execute(
-    buscador(tags)
+    buscador(tags, tags2)
 )
-for nombre, modelo in cursor.fetchall():
+
+for id, nombre, modelo in cursor.fetchall():
     print("{0} {1}".format(nombre, modelo))
+    id_ropa = id
+
+
 
